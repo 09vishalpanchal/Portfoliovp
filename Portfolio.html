@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio | RedShift Developer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --dark-bg: #0a0a12;
+            --dark-card: #121220;
+            --dark-border: #1e1e2e;
+            --red-primary: #e63946;
+            --red-secondary: #ff2a5f;
+            --red-accent: #ff0844;
+            --red-dark: #8a0e1f;
+            --text-light: #f0f0f5;
+            --text-gray: #a0a0b0;
+            --gradient-red: linear-gradient(135deg, var(--red-primary), var(--red-secondary));
+            --gradient-dark: linear-gradient(135deg, #1a1a2e, #0a0a1a);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: var(--dark-bg);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 10% 20%, rgba(230, 57, 70, 0.1) 0%, rgba(10, 10, 18, 0) 40%);
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(10px);
+            background: rgba(10, 10, 18, 0.9);
+            border-bottom: 1px solid var(--dark-border);
+        }
+        
+        header.scrolled {
+            padding: 15px 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo span {
+            color: var(--red-primary);
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            font-size: 2rem;
+            color: var(--red-primary);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        nav ul li a:hover {
+            color: var(--red-primary);
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--red-primary);
+            transition: width 0.3s ease;
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-light);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Portfolio Hero */
+        .portfolio-hero {
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            padding-top: 120px;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            background: var(--gradient-dark);
+            border-bottom: 1px solid var(--dark-border);
+        }
+        
+        .portfolio-hero h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .portfolio-hero h1 span {
+            background: var(--gradient-red);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+        
+        .portfolio-hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: var(--text-gray);
+        }
+        
+        /* Portfolio Filters */
+        .portfolio-filters {
+            padding: 40px 0;
+            background: var(--dark-bg);
+            border-bottom: 1px solid var(--dark-border);
+        }
+        
+        .filter-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .filter-btn {
+            padding: 10px 25px;
+            background: var(--dark-card);
+            color: var(--text-light);
+            border: 1px solid var(--dark-border);
+            border-radius: 30px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--gradient-red);
+            border-color: var(--red-primary);
+            box-shadow: 0 0 15px rgba(230, 57, 70, 0.4);
+        }
+        
+        /* Portfolio Grid */
+        .portfolio-section {
+            padding: 80px 0;
+        }
+        
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 40px;
+        }
+        
+        .portfolio-item {
+            background: var(--dark-card);
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            transition: all 0.4s ease;
+            border: 1px solid var(--dark-border);
+        }
+        
+        .portfolio-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            border-color: var(--red-primary);
+        }
+        
+        .portfolio-img {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .portfolio-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: fill;
+            transition: all 0.5s ease;
+        }
+        
+        .portfolio-item:hover .portfolio-img img {
+            transform: scale(1.1);
+        }
+        
+        .portfolio-tag {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--red-primary);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .portfolio-content {
+            padding: 25px;
+        }
+        
+        .portfolio-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            font-family: 'Orbitron', sans-serif;
+        }
+        
+        .portfolio-content p {
+            color: var(--text-gray);
+            margin-bottom: 20px;
+            min-height: 60px;
+        }
+        
+        .portfolio-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid var(--dark-border);
+        }
+        
+        .portfolio-date {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+        
+        .portfolio-link {
+            color: var(--red-primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .portfolio-link:hover {
+            color: var(--red-secondary);
+        }
+        
+        .portfolio-link i {
+            margin-left: 5px;
+        }
+        
+        /* Add Project Form */
+        .add-project-section {
+            padding: 80px 0;
+            background: var(--gradient-dark);
+            border-top: 1px solid var(--dark-border);
+            border-bottom: 1px solid var(--dark-border);
+        }
+        
+        .add-project-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--dark-card);
+            border-radius: 15px;
+            padding: 40px;
+            border: 1px solid var(--dark-border);
+        }
+        
+        .add-project-container h2 {
+            text-align: center;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+        }
+        
+        .add-project-container h2 span {
+            background: var(--gradient-red);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 14px;
+            background: rgba(18, 18, 32, 0.7);
+            border: 1px solid var(--dark-border);
+            border-radius: 8px;
+            color: var(--text-light);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--red-primary);
+            box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.3);
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            background: var(--gradient-red);
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 5px 15px rgba(230, 57, 70, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+        
+        .btn:hover::after {
+            left: 100%;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(230, 57, 70, 0.6);
+        }
+        
+        .btn-full {
+            width: 100%;
+        }
+        
+        /* Footer */
+        footer {
+            background: rgba(10, 10, 18, 0.95);
+            padding: 70px 0 30px;
+            border-top: 1px solid var(--dark-border);
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-col h4 {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            position: relative;
+        }
+        
+        .footer-col h4::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--gradient-red);
+            border-radius: 3px;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links li a {
+            color: var(--text-gray);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-links li a:hover {
+            color: var(--red-primary);
+            padding-left: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--dark-card);
+            color: var(--text-light);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--gradient-red);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid var(--dark-border);
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .portfolio-hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .portfolio-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-toggle {
+                display: block;
+            }
+            
+            nav {
+                position: fixed;
+                top: 70px;
+                right: -100%;
+                background: rgba(10, 10, 18, 0.95);
+                width: 80%;
+                height: calc(100vh - 70px);
+                transition: all 0.4s ease;
+                backdrop-filter: blur(10px);
+                border-left: 1px solid var(--dark-border);
+            }
+            
+            nav.active {
+                right: 0;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                padding: 30px;
+            }
+            
+            nav ul li {
+                margin: 15px 0;
+            }
+            
+            .portfolio-hero h1 {
+                font-size: 2.2rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .portfolio-hero {
+                padding-top: 100px;
+                min-height: 50vh;
+            }
+            
+            .portfolio-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .add-project-container {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-fire"></i>
+                Vishal<span>Shift</span>
+            </a>
+            <button class="mobile-toggle" id="mobileToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav id="nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="portfolio.html" class="active">Portfolio</a></li>
+                    <li><a href="services.html">Services</a></li>
+                
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Portfolio Hero -->
+    <section class="portfolio-hero">
+        <div class="container">
+            <h1>My <span>Portfolio</span></h1>
+            <p>Explore my latest projects showcasing innovative 3D animations integrated with WordPress</p>
+        </div>
+    </section>
+
+    <!-- Portfolio Filters -->
+    <section class="portfolio-filters">
+        <div class="container">
+            <div class="filter-container">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="business">Business</button>
+                <button class="filter-btn" data-filter="custom-website">Custom Website</button>
+                <button class="filter-btn" data-filter="ecommerce">E-commerce</button>
+                <button class="filter-btn" data-filter="landing">Landing Page/HTML</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Grid -->
+    <section class="portfolio-section">
+        <div class="container">
+            <div class="portfolio-grid" id="portfolioGrid">
+                <!-- Project 1 -->
+                <div class="portfolio-item" data-category="custom-website">
+                    <div class="portfolio-img">
+                        <img src="/image/just-crack-logo.webp" alt="just carck interview logo">
+                        <div class="portfolio-tag">WordPress</div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Just Crack Interview</h3>
+                        <p>An All Category Interview Question Avabile on this Website </p>
+                        <div class="portfolio-meta">
+                            <div class="portfolio-date">July 2025-Present</div>
+                            <a href="https://www.justcrackinterview.com/" class="portfolio-link">View Project <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="portfolio-item" data-category=" ecommerce">
+                    <div class="portfolio-img">
+                        <img src="image/1536 x 440 px.png" alt="Radhira logo">
+                        <div class="portfolio-tag">E-Commerce</div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Label Radhira</h3>
+                        <p>Label Radhira Is An E-Commerce Kurti Store </p>
+                        <div class="portfolio-meta">
+                            <div class="portfolio-date">6/7/2025-24/7/2025</div>
+                            <a href="labelradhira.com" class="portfolio-link">View Project <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="portfolio-item" data-category=" ecommerce">
+                    <div class="portfolio-img">
+                        <img src="image/Green Brown Illustration Clothes Fashion Logo for Store (1)-Photoroom.png" alt="Sanwariya lgo">
+                        <div class="portfolio-tag">E-commerce</div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Sanwariya Fabircs</h3>
+                        <p>Sanwariya Fabircs An E-Commerce Store Of Cloths Girls And Boys </p>
+                        <div class="portfolio-meta">
+                            <div class="portfolio-date">1/7/2025-25/7/2025</div>
+                            <a href="http://sanwariyafabrics.com/" class="portfolio-link">View Project <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 4 -->
+                <div class="portfolio-item" data-category=" ecommerce">
+                    <div class="portfolio-img">
+                        <img src="image/Logo-skyscapes-1-1.png" alt="Fashion Portfolio">
+                        <div class="portfolio-tag">Animation</div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Urban Balcony</h3>
+                        <p>Dynamic fashion portfolio with 3D clothing visualization and animations.</p>
+                        <div class="portfolio-meta">
+                            <div class="portfolio-date">November 2022</div>
+                            <a href="https://urbanbalconyflooring.com/" class="portfolio-link">View Project <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 5 -->
+                <div class="portfolio-item" data-category=" ecommerce">
+                    <div class="portfolio-img">
+                        <img src="image\AgriFutureIndiaLogo-Photoroo-Photoroom.png" alt="Tech Showcase">
+                        <div class="portfolio-tag">Business</div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Agri Future India</h3>
+                        <p>Its Website Agrifuture india use for Farmar</p>
+                        <div class="portfolio-meta">
+                            <div class="portfolio-date">July 2025</div>
+                            <a href="https://agrifutureindia.com/" class="portfolio-link">View Project <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 6 -->
+                <div class="portfolio-item" data-category="business">
+                    <div class="portfolio-img">
+                        <img src="image\2-Photoroom.png" alt="Jewelry Store">
+                        <div class="portfolio-tag">Business Help</div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Consumer Injury Help</h3>
+                        <p>Consumer Injury Help Website Based On Hire A Lawer</p>
+                        <div class="portfolio-meta">
+                            <div class="portfolio-date">June-july 2025</div>
+                            <a href="https://consumersinjuryhelp.com/" class="portfolio-link">View Project <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- project7 -->
+                 <div class="portfolio-item" data-category="business ecommerce">
+                    <div class="portfolio-img">
+                        <img src="image\AutoReinigung089_Miami_blue-1.png" alt="auto reini">
+                        <div class="portfolio-tag">Car Sevice</div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Auto Reinigung </h3>
+                        <p>High-end jewelry e-commerce with 360° product views and animations.</p>
+                        <div class="portfolio-meta">
+                            <div class="portfolio-date">June 2025</div>
+                            <a href="https://www.autoreinigung089.de/" class="portfolio-link">View Project <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- 8project -->
+                <div class="portfolio-item" data-category="business ecommerce">
+                    <div class="portfolio-img">
+                        <img src="image\resort-logo-white.png" alt="rama">
+                        <div class="portfolio-tag">E-commerce</div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Rama Resort</h3>
+                        <p>Its A Resort Website </p>
+                        <div class="portfolio-meta">
+                            <div class="portfolio-date">June 2025</div>
+                            <a href="https://www.autoreinigung089.de/" class="portfolio-link">View Project <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- 9 project -->
+                <div class="portfolio-item" data-category="landing">
+                    <div class="portfolio-img">
+                        <img src="image\logo.jpg" alt="tour">
+                        <div class="portfolio-tag">Tour Moto</div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Tour Moto</h3>
+                        <p>Its Website On Based Tour Packeges</p>
+                        <div class="portfolio-meta">
+                            <div class="portfolio-date">June 2025</div>
+                            <a href="https://tourmoto.netlify.app/" class="portfolio-link">View Project <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- 10 project -->
+                <div class="portfolio-item" data-category="landing">
+                    <div class="portfolio-img">
+                        <img src="image\quick.png" alt="quick">
+                        <div class="portfolio-tag">Quicker Head</div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Quirky Heads </h3>
+                        <p>Its Website On Based Tour Packeges</p>
+                        <div class="portfolio-meta">
+                            <div class="portfolio-date">June 2025</div>
+                            <a href="https://shopifyvp.netlify.app/" class="portfolio-link">View Project <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- 11 project -->
+                <div class="portfolio-item" data-category="landing">
+                    <div class="portfolio-img">
+                        <img src="image\cricket.jpg" alt="quick">
+                        <div class="portfolio-tag">Cricket Scoring App</div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Cricket Scoring App </h3>
+                        <p>Its Website On Based Cricket Match Scoring App</p>
+                        <div class="portfolio-meta">
+                            <div class="portfolio-date">June 2025</div>
+                            <a href="https://vpcricket-scoring.netlify.app/" class="portfolio-link">View Project <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- 12project -->
+                 <div class="portfolio-item" data-category="business ">
+                    <div class="portfolio-img">
+                        <img src="image\ask.png" alt="ask">
+                        <div class="portfolio-tag">Business</div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Ask Global Software</h3>
+                        <p>Its Website On Based Business Website</p>
+                        <div class="portfolio-meta">
+                            <div class="portfolio-date">june 2025</div>
+                            <a href="https://ashglobalsoftware.com/" class="portfolio-link">View Project <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- project 13 -->
+                 <div class="portfolio-item" data-category="business ">
+                    <div class="portfolio-img">
+                        <img src="image\Screenshot_1-Photoroom.png" alt="ask">
+                        <div class="portfolio-tag">Business</div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Towel Trove</h3>
+                        <p>Its Website On Based Business Website</p>
+                        <div class="portfolio-meta">
+                            <div class="portfolio-date">june 2025</div>
+                            <a href="https://toweltrove.com//" class="portfolio-link">View Project <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Add Project Form -->
+    <!-- <section class="add-project-section">
+        <div class="container">
+            <div class="add-project-container">
+                <h2>Add <span>New Project</span></h2>
+                <form id="addProjectForm">
+                    <div class="form-group">
+                        <label for="projectTitle">Project Title</label>
+                        <input type="text" id="projectTitle" class="form-control" placeholder="Enter project title" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="projectDescription">Description</label>
+                        <textarea id="projectDescription" class="form-control" placeholder="Describe your project" required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="projectImage">Image URL</label>
+                        <input type="url" id="projectImage" class="form-control" placeholder="Paste image URL" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="projectCategory">Category</label>
+                        <select id="projectCategory" class="form-control" required>
+                            <option value="">Select category</option>
+                            <option value="wordpress">WordPress</option>
+                            <option value="animation">3D Animation</option>
+                            <option value="ecommerce">E-commerce</option>
+                            <option value="interactive">Interactive</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="projectDate">Completion Date</label>
+                        <input type="month" id="projectDate" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="projectLink">Project Link (optional)</label>
+                        <input type="url" id="projectLink" class="form-control" placeholder="Project URL">
+                    </div>
+                    
+                    <button type="submit" class="btn btn-full">Add Project</button>
+                </form>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo">
+                        <i class="fas fa-fire"></i>
+                        Red<span>Shift</span>
+                    </div>
+                    <p>Creating immersive digital experiences through innovative WordPress development and cutting-edge 3D animation.</p>
+                    <div class="social-links">
+                           <a href="https://www.facebook.com/people/Vishal-Panchal/100085150862117/"><i class="fab fa-facebook-f"></i></a>
+                        <!-- <a href="#"><i class="fab fa-twitter"></i></a> -->
+                        <a href="https://www.instagram.com/vishalpanchallllll/"><i class="fab fa-instagram"></i></a>
+                        <a href="https://in.linkedin.com/in/vishalpanchal0912"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">3D Animation Integration</a></li>
+                        <li><a href="#">Custom WordPress Development</a></li>
+                        <li><a href="#">E-commerce Solutions</a></li>
+                        <li><a href="#">Responsive Web Design</a></li>
+                        <li><a href="#">SEO Optimization</a></li>
+                        <li><a href="#">Website Maintenance</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Newsletter</h4>
+                    <p>Subscribe to receive updates on the latest trends in 3D web animation.</p>
+                    <form class="newsletter-form">
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Enter your email" required>
+                        </div>
+                        <button type="submit" class="btn">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Vishal Panchal. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation Toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const nav = document.getElementById('nav');
+        
+        mobileToggle.addEventListener('click', () => {
+            nav.classList.toggle('active');
+            mobileToggle.querySelector('i').classList.toggle('fa-bars');
+            mobileToggle.querySelector('i').classList.toggle('fa-times');
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                nav.classList.remove('active');
+                mobileToggle.querySelector('i').classList.add('fa-bars');
+                mobileToggle.querySelector('i').classList.remove('fa-times');
+            });
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Portfolio Filtering
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+        
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update active button
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                // Get filter category
+                const filter = btn.getAttribute('data-filter');
+                
+                // Filter items
+                portfolioItems.forEach(item => {
+                    if (filter === 'all' || item.getAttribute('data-category').includes(filter)) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+        
+        // Add Project Form
+        const projectForm = document.getElementById('addProjectForm');
+        const portfolioGrid = document.getElementById('portfolioGrid');
+        
+        projectForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Get form values
+            const title = document.getElementById('projectTitle').value;
+            const description = document.getElementById('projectDescription').value;
+            const imageUrl = document.getElementById('projectImage').value;
+            const category = document.getElementById('projectCategory').value;
+            const date = document.getElementById('projectDate').value;
+            const link = document.getElementById('projectLink').value;
+            
+            // Format date
+            const dateObj = new Date(date);
+            const monthNames = ["January", "February", "March", "April", "May", "June", 
+                              "July", "August", "September", "October", "November", "December"];
+            const formattedDate = `${monthNames[dateObj.getMonth()]} ${dateObj.getFullYear()}`;
+            
+            // Create new project element
+            const newProject = document.createElement('div');
+            newProject.className = 'portfolio-item';
+            newProject.setAttribute('data-category', category);
+            
+            newProject.innerHTML = `
+                <div class="portfolio-img">
+                    <img src="${imageUrl}" alt="${title}">
+                    <div class="portfolio-tag">${category === 'wordpress' ? 'WordPress' : 
+                        category === 'animation' ? '3D Animation' : 
+                        category === 'ecommerce' ? 'E-commerce' : 'Interactive'}</div>
+                </div>
+                <div class="portfolio-content">
+                    <h3>${title}</h3>
+                    <p>${description}</p>
+                    <div class="portfolio-meta">
+                        <div class="portfolio-date">${formattedDate}</div>
+                        <a href="${link || '#'}" class="portfolio-link">View Project <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            `;
+            
+            // Add to grid
+            portfolioGrid.prepend(newProject);
+            
+            // Reset form
+            projectForm.reset();
+            
+            // Show success message
+            alert('Project added successfully!');
+            
+            // Scroll to top to see the new project
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>

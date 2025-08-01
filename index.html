@@ -1,0 +1,1866 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Primary Meta Tags -->
+  <title>Vishal Panchal | WordPress Developer & 3D Animation Expert for Client Websites</title>
+  <meta name="title" content="Vishal Panchal | WordPress Developer & 3D Animation Expert for Client Websites">
+  <meta name="description" content="I'm Vishal Panchal, a freelance WordPress developer and 3D animation expert. I build fast, modern, and visually stunning websites for businesses and clients worldwide. Let’s bring your digital vision to life.">
+
+  <!-- SEO Meta Tags -->
+  <meta name="keywords" content="Vishal Panchal, WordPress Developer, 3D Animation Developer, Website Developer Portfolio, Hire WordPress Freelancer, Custom WordPress Websites, Freelance WordPress Expert, Web Designer India">
+  <meta name="author" content="Vishal Panchal">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="English">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yourdomain.com/">
+  <meta property="og:title" content="Vishal Panchal | WordPress & 3D Animation Developer">
+  <meta property="og:description" content="Need a custom WordPress site or 3D animation? Explore Vishal Panchal’s portfolio and hire an expert who delivers quality and creativity.">
+  <meta property="og:image" content="https://yourdomain.com/images/og-image.jpg">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://yourdomain.com/">
+  <meta property="twitter:title" content="Vishal Panchal | WordPress & 3D Animation Developer">
+  <meta property="twitter:description" content="Freelance WordPress & 3D Animation Developer. Let’s build something amazing together.">
+  <meta property="twitter:image" content="https://yourdomain.com/images/og-image.jpg">
+
+  <!-- Favicon -->
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+  <!-- Fonts & Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<style>
+      :root {
+            --dark-bg: #0a0a12;
+            --dark-card: #121220;
+            --dark-border: #1e1e2e;
+            --red-primary: #e63946;
+            --red-secondary: #ff2a5f;
+            --red-accent: #ff0844;
+            --red-dark: #8a0e1f;
+            --text-light: #f0f0f5;
+            --text-gray: #a0a0b0;
+            --gradient-red: linear-gradient(135deg, var(--red-primary), var(--red-secondary));
+            --gradient-dark: linear-gradient(135deg, #1a1a2e, #0a0a1a);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: var(--dark-bg);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 10% 20%, rgba(230, 57, 70, 0.1) 0%, rgba(10, 10, 18, 0) 40%);
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(10px);
+            background: rgba(10, 10, 18, 0.9);
+            border-bottom: 1px solid var(--dark-border);
+        }
+        
+        header.scrolled {
+            padding: 15px 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo span {
+            color: var(--red-primary);
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            font-size: 2rem;
+            color: var(--red-primary);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        nav ul li a:hover {
+            color: var(--red-primary);
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--red-primary);
+            transition: width 0.3s ease;
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-light);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section - Enhanced */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 100px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-container {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            justify-content: space-between;
+        }
+        
+        .hero-content {
+            width: 55%;
+            z-index: 10;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .hero h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .hero h1 span {
+            background: var(--gradient-red);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: block;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-bottom: 30px;
+            color: var(--text-gray);
+            animation: fadeInUp 1.2s ease-out;
+        }
+        
+        .hero-btns {
+            animation: fadeInUp 1.4s ease-out;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            background: var(--gradient-red);
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 5px 15px rgba(230, 57, 70, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+        
+        .btn:hover::after {
+            left: 100%;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(230, 57, 70, 0.6);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--red-primary);
+            margin-left: 15px;
+        }
+        
+        .hero-visual {
+            position: relative;
+            width: 40%;
+            height: 70%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            perspective: 1000px;
+            animation: fadeInRight 1.5s ease-out;
+        }
+        
+        .visual-container {
+            width: 300px;
+            height: 300px;
+            position: relative;
+            transform-style: preserve-3d;
+            transform: rotateX(25deg) rotateY(25deg);
+            animation: rotate 15s infinite linear, float 6s ease-in-out infinite;
+        }
+        
+        .cube-face {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: rgba(230, 57, 70, 0.1);
+            border: 2px solid var(--red-dark);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            color: var(--red-primary);
+            backdrop-filter: blur(2px);
+            transition: all 0.4s ease;
+        }
+        
+        .cube-face:hover {
+            background: rgba(230, 57, 70, 0.15);
+            border-color: var(--red-accent);
+        }
+        
+        .front  { transform: translateZ(150px); }
+        .back   { transform: rotateY(180deg) translateZ(150px); }
+        .right  { transform: rotateY(90deg) translateZ(150px); }
+        .left   { transform: rotateY(-90deg) translateZ(150px); }
+        .top    { transform: rotateX(90deg) translateZ(150px); }
+        .bottom { transform: rotateX(-90deg) translateZ(150px); }
+        
+        @keyframes rotate {
+            from { transform: rotateX(0) rotateY(0) rotateZ(0); }
+            to { transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg); }
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px) rotateX(25deg) rotateY(25deg); }
+            50% { transform: translateY(-20px) rotateX(25deg) rotateY(25deg); }
+            100% { transform: translateY(0px) rotateX(25deg) rotateY(25deg); }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        /* Section Styling */
+        section {
+            padding: 100px 0;
+            position: relative;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-header h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .section-header h2 span {
+            background: var(--gradient-red);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .section-header p {
+            max-width: 700px;
+            margin: 0 auto;
+            color: var(--text-gray);
+            font-size: 1.1rem;
+        }
+        /*about section*/
+         #about {
+      background: var(--dark-card);
+      padding: 100px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .about-container {
+      display: flex;
+      align-items: center;
+      gap: 50px;
+    }
+    
+    .about-content {
+      flex: 1;
+      animation: fadeInLeft 1s ease-out;
+    }
+    
+    .about-visual {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      animation: fadeInRight 1s ease-out;
+    }
+    
+    .about-content h2 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2.5rem;
+      margin-bottom: 25px;
+      position: relative;
+    }
+    
+    .about-content h2 span {
+      background: var(--gradient-red);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    .about-content h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 80px;
+      height: 4px;
+      background: var(--gradient-red);
+      border-radius: 2px;
+    }
+    
+    .about-content p {
+      margin: 20px 0;
+      color: var(--text-gray);
+      line-height: 1.8;
+    }
+    
+    .experience-timeline {
+      margin: 30px 0;
+      padding-left: 20px;
+      border-left: 3px solid var(--red-primary);
+    }
+    
+    .exp-item {
+      position: relative;
+      margin-bottom: 30px;
+      padding: 20px;
+      background: rgba(18, 18, 32, 0.6);
+      border-radius: 10px;
+      border: 1px solid var(--dark-border);
+      transition: all 0.3s ease;
+    }
+    
+    .exp-item:hover {
+      transform: translateY(-5px);
+      border-color: var(--red-primary);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    }
+    
+    .exp-item::before {
+      content: '';
+      position: absolute;
+      top: 25px;
+      left: -29px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--red-primary);
+      border: 3px solid var(--dark-bg);
+      z-index: 2;
+    }
+    
+    .exp-item h3 {
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+    }
+    
+    .exp-item h3 i {
+      margin-right: 10px;
+      color: var(--red-primary);
+    }
+    
+    .exp-item .duration {
+      display: inline-block;
+      padding: 5px 15px;
+      background: rgba(230, 57, 70, 0.2);
+      border-radius: 20px;
+      font-size: 0.9rem;
+      margin-left: 15px;
+      color: var(--red-primary);
+      font-weight: 600;
+    }
+    
+    .exp-item p {
+      margin: 10px 0 0;
+      font-size: 1rem;
+    }
+    
+    .about-btns {
+      display: flex;
+      gap: 20px;
+      margin-top: 30px;
+      flex-wrap: wrap;
+    }
+    
+    .about-btns .btn {
+      flex: 1;
+      min-width: 180px;
+      text-align: center;
+    }
+    
+    .stats-container {
+      display: flex;
+      gap: 20px;
+      margin-top: 30px;
+      flex-wrap: wrap;
+    }
+    
+    .stat-box {
+      flex: 1;
+      min-width: 150px;
+      background: rgba(18, 18, 32, 0.6);
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      border: 1px solid var(--dark-border);
+      transition: all 0.3s ease;
+    }
+    
+    .stat-box:hover {
+      transform: translateY(-5px);
+      border-color: var(--red-primary);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    }
+    
+    .stat-number {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      background: var(--gradient-red);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 5px;
+    }
+    
+    .stat-label {
+      font-size: 0.9rem;
+      color: var(--text-gray);
+    }
+    
+    .about-visual-container {
+      width: 100%;
+      max-width: 400px;
+      height: 400px;
+      position: relative;
+      perspective: 1000px;
+    }
+    
+    .developer-3d {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      transform: rotateX(15deg) rotateY(15deg);
+      animation: rotate 20s infinite linear;
+    }
+    
+    .dev-face {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: rgba(18, 18, 32, 0.6);
+      border: 2px solid var(--red-dark);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-size: 3rem;
+      color: var(--red-primary);
+      backdrop-filter: blur(2px);
+      transition: all 0.4s ease;
+      padding: 20px;
+      text-align: center;
+    }
+    
+    .dev-face:hover {
+      background: rgba(230, 57, 70, 0.15);
+      border-color: var(--red-accent);
+    }
+    
+    .dev-face h4 {
+      font-size: 1.2rem;
+      margin-top: 15px;
+      color: var(--text-light);
+      font-weight: 500;
+    }
+    
+    .front  { transform: translateZ(200px); }
+    .back   { transform: rotateY(180deg) translateZ(200px); }
+    .right  { transform: rotateY(90deg) translateZ(200px); }
+    .left   { transform: rotateY(-90deg) translateZ(200px); }
+    .top    { transform: rotateX(90deg) translateZ(200px); }
+    .bottom { transform: rotateX(-90deg) translateZ(200px); }
+    
+    /* Responsive adjustments */
+    @media (max-width: 992px) {
+      .about-container {
+        flex-direction: column;
+      }
+      
+      .about-content, .about-visual {
+        width: 100%;
+      }
+      
+      .about-visual-container {
+        max-width: 350px;
+        height: 350px;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .about-btns .btn {
+        min-width: 100%;
+      }
+      
+      .about-visual-container {
+        height: 300px;
+      }
+      
+      .dev-face {
+        font-size: 2rem;
+      }
+      
+      .dev-face h4 {
+        font-size: 1rem;
+      }
+    }
+        /* Services */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background: var(--dark-card);
+            border-radius: 15px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.4s ease;
+            border: 1px solid var(--dark-border);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient-red);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+        
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-red);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 20px;
+            font-size: 2rem;
+            color: white;
+        }
+        
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        /* Portfolio */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+        
+        .portfolio-item {
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            height: 300px;
+            perspective: 1000px;
+            border: 1px solid var(--dark-border);
+        }
+        
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s ease;
+        }
+        
+        .portfolio-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(to top, rgba(230, 57, 70, 0.8), transparent);
+            padding: 20px;
+            transform: translateY(100px);
+            transition: all 0.5s ease;
+        }
+        
+        .portfolio-item:hover .portfolio-overlay {
+            transform: translateY(0);
+        }
+        
+        .portfolio-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .portfolio-overlay h3 {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+        
+        .portfolio-overlay p {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+        
+        .portfolio-overlay .btn {
+            margin-top: 15px;
+            padding: 8px 20px;
+            font-size: 0.9rem;
+        }
+        
+        /* Animation Showcase */
+        .animation-showcase {
+            background: var(--gradient-dark);
+            border-top: 1px solid var(--dark-border);
+            border-bottom: 1px solid var(--dark-border);
+        }
+        
+        .animation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .animation-card {
+            background: var(--dark-card);
+            border-radius: 15px;
+            padding: 30px;
+            border: 1px solid var(--dark-border);
+            text-align: center;
+            transition: all 0.4s ease;
+        }
+        
+        .animation-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            border-color: var(--red-primary);
+        }
+        
+        .animation-icon {
+            font-size: 3rem;
+            color: var(--red-primary);
+            margin-bottom: 20px;
+        }
+        
+        /* Pricing */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .pricing-card {
+            background: var(--dark-card);
+            border-radius: 15px;
+            padding: 40px 30px;
+            text-align: center;
+            border: 1px solid var(--dark-border);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .pricing-card.popular {
+            border: 1px solid var(--red-primary);
+            transform: scale(1.05);
+            z-index: 2;
+        }
+        
+        .pricing-card.popular::before {
+            content: "POPULAR";
+            position: absolute;
+            top: 15px;
+            right: -30px;
+            background: var(--red-primary);
+            color: white;
+            padding: 5px 30px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            transform: rotate(45deg);
+        }
+        
+        .pricing-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+        
+        .price {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 25px;
+            background: var(--gradient-red);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .price span {
+            font-size: 1rem;
+            color: var(--text-gray);
+        }
+        
+        .features {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+        
+        .features li {
+            padding: 10px 0;
+            border-bottom: 1px dashed rgba(160, 160, 176, 0.2);
+        }
+        
+        .features li:last-child {
+            border-bottom: none;
+        }
+        
+        .features li i {
+            color: var(--red-primary);
+            margin-right: 10px;
+        }
+        
+        /* Testimonials Slider */
+        .testimonials {
+            background: var(--gradient-dark);
+            border-top: 1px solid var(--dark-border);
+            border-bottom: 1px solid var(--dark-border);
+            padding: 80px 0;
+        }
+        
+        .testimonial-slider {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+            overflow: hidden;
+            height: 350px;
+        }
+        
+        .testimonial-slides {
+            display: flex;
+            transition: transform 0.6s ease-in-out;
+            height: 100%;
+        }
+        
+        .testimonial-slide {
+            min-width: 100%;
+            padding: 0 20px;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .testimonial-card {
+            background: var(--dark-card);
+            border-radius: 15px;
+            padding: 30px;
+            border: 1px solid var(--dark-border);
+            max-width: 700px;
+            width: 100%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--gradient-red);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            color: white;
+            margin-right: 15px;
+        }
+        
+        .testimonial-info h4 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+        
+        .testimonial-info p {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+        
+        .testimonial-content p {
+            font-style: italic;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .testimonial-content p::before {
+            content: """;
+            position: absolute;
+            top: -20px;
+            left: 0;
+            font-size: 4rem;
+            color: rgba(230, 57, 70, 0.3);
+            font-family: serif;
+            line-height: 1;
+        }
+        
+        .stars {
+            color: var(--red-primary);
+            margin-top: 15px;
+        }
+        
+        .slider-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            z-index: 10;
+        }
+        
+        .slider-btn {
+            background: rgba(230, 57, 70, 0.7);
+            border: none;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .slider-btn:hover {
+            background: var(--red-primary);
+            transform: scale(1.1);
+        }
+        
+        .slider-dots {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+            gap: 10px;
+        }
+        
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--text-gray);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .slider-dot.active {
+            background: var(--red-primary);
+            transform: scale(1.2);
+        }
+        
+        /* Contact */
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+        }
+        
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+        
+        .contact-detail {
+            display: flex;
+            margin-bottom: 25px;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(230, 57, 70, 0.1);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
+            color: var(--red-primary);
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        .contact-form {
+            background: var(--dark-card);
+            border-radius: 15px;
+            padding: 30px;
+            border: 1px solid var(--dark-border);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 14px;
+            background: rgba(18, 18, 32, 0.7);
+            border: 1px solid var(--dark-border);
+            border-radius: 8px;
+            color: var(--text-light);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--red-primary);
+            box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.3);
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background: rgba(10, 10, 18, 0.95);
+            padding: 70px 0 30px;
+            border-top: 1px solid var(--dark-border);
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-col h4 {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            position: relative;
+        }
+        
+        .footer-col h4::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--gradient-red);
+            border-radius: 3px;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links li a {
+            color: var(--text-gray);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-links li a:hover {
+            color: var(--red-primary);
+            padding-left: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--dark-card);
+            color: var(--text-light);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--gradient-red);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid var(--dark-border);
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero-content {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .hero-visual {
+                position: relative;
+                width: 100%;
+                height: 400px;
+                transform: none;
+                margin-top: 40px;
+            }
+            
+            .hero-container {
+                flex-direction: column;
+                justify-content: center;
+                text-align: center;
+            }
+            
+            .hero p {
+                margin: 0 auto 30px;
+            }
+            
+            .testimonial-slider {
+                height: 400px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-toggle {
+                display: block;
+            }
+            .imgmy{
+                display: none;
+            }
+            a.btn.btn-outline {
+    text-align: center;
+    margin: 0 auto;
+}
+    .hero-visual {
+        position: relative;
+        width: 100%;
+        height: 400px;
+        transform: none;
+        margin-top: 40px;
+        display: none;
+    }
+            nav {
+                position: fixed;
+                top: 70px;
+                right: -100%;
+                background: rgba(10, 10, 18, 0.95);
+                width: 80%;
+                height: calc(100vh - 70px);
+                transition: all 0.4s ease;
+                backdrop-filter: blur(10px);
+                border-left: 1px solid var(--dark-border);
+            }
+            
+            nav.active {
+                right: 0;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                padding: 30px;
+            }
+            
+            nav ul li {
+                margin: 15px 0;
+            }
+            
+            .section-header h2 {
+                font-size: 2rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .testimonial-slider {
+                height: 450px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .btn {
+                display: block;
+                margin: 10px auto;
+                max-width: 250px;
+            }
+            
+            .btn-outline {
+                margin-left: 0;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .testimonial-slider {
+                height: 500px;
+            }
+        }
+
+  .cta-section {
+            padding: 100px 0;
+            text-align: center;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23121220" opacity="0.5"/><path d="M0 50L100 50" stroke="%23e63946" stroke-width="0.5" stroke-dasharray="5,5"/></svg>');
+            background-size: cover;
+        }
+        
+        .cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px;
+            background: rgba(18, 18, 32, 0.7);
+            border-radius: 15px;
+            border: 1px solid var(--dark-border);
+            backdrop-filter: blur(10px);
+        }
+        
+        .cta-container h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .cta-container p {
+            color: var(--text-gray);
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+
+</style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <i class="fas fa-fire"></i>
+                Vishal<span>Panchal</span>
+            </a>
+            <button class="mobile-toggle" id="mobileToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav id="nav">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="Portfolio.html">Portfolio</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-container">
+            <div class="hero-content">
+               <h1>Build Stunning <span>Web Experiences</span> with WordPress</h1>
+                <p>My portfolio showcases over 40 projects that I have delivered. I have almost a year of experience in Wordpress development. For websites containing animations and thorough modern UIs, that require cross platform accessibility, I have a special expertise in making high performance websites a builder one. These include business and portfolio websites, online stores, and even custom Elementor widgets. I strive to provide optimal user experiences through dynamic web experiences.</p>
+                <div class="hero-btns">
+                    <a href="Portfolio.html" class="btn">View My Work</a>
+                    <a href="contact.html" class="btn btn-outline">Get In Touch</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <img src="image/my.jpg" class="imgmy" style="border-radius: 100%;">
+                <div class="visual-container">
+                   
+                </div>
+            </div>
+        </div>
+    </section>
+  
+  <!-- About Section -->
+  <section id="about">
+    <div class="container">
+      <div class="about-container">
+        <div class="about-content">
+          <h2>About <span>Me</span></h2>
+          <p>I am a WordPress developer and a 3D animation expert, creating beautiful and functional websites. Carefully considering every detail, I bring concepts to life as captivating digital products.
+
+</p>
+          
+          <div class="experience-timeline">
+            <div class="exp-item">
+              <h3><i class="fas fa-briefcase"></i> D3Logics <span class="duration">8 Months</span></h3>
+              <p>Developed responsive WordPress websites with custom functionality. Created interactive UI elements and optimized sites for performance and SEO.</p>
+            </div>
+            
+            <div class="exp-item">
+              <h3><i class="fas fa-briefcase"></i> Dev Techno Soft <span class="duration">3 Months (Present)</span></h3>
+              <p>Specializing in advanced WordPress solutions with 3D animation integration. Building custom themes and plugins for diverse client requirements.</p>
+            </div>
+          </div>
+          
+          <div class="stats-container">
+            <div class="stat-box">
+              <div class="stat-number">40+</div>
+              <div class="stat-label">Projects</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-number">11</div>
+              <div class="stat-label">Months Exp</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-number">100%</div>
+              <div class="stat-label">Satisfaction</div>
+            </div>
+          </div>
+          
+          <div class="about-btns">
+            <a href="#" class="btn"><i class="fas fa-download"></i> Download CV</a>
+            <a href="contact.html" class="btn btn-outline"><i class="fas fa-paper-plane"></i> Contact Me</a>
+          </div>
+        </div>
+        
+        <div class="about-visual">
+          <div class="about-visual-container">
+            <div class="developer-3d">
+              <div class="dev-face front">
+                <i class="fab fa-wordpress"></i>
+                <h4>WordPress</h4>
+              </div>
+              <div class="dev-face back">
+                <i class="fas fa-cube"></i>
+                <h4>3D Design</h4>
+              </div>
+              <div class="dev-face right">
+                <i class="fas fa-code"></i>
+                <h4>Development</h4>
+              </div>
+              <div class="dev-face left">
+                <i class="fas fa-mobile-alt"></i>
+                <h4>Responsive</h4>
+              </div>
+              <div class="dev-face top">
+                <i class="fas fa-rocket"></i>
+                <h4>Performance</h4>
+              </div>
+              <div class="dev-face bottom">
+                <i class="fas fa-paint-brush"></i>
+                <h4>UI/UX Design</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+    <!-- Services Section -->
+    <section id="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>My <span>Services</span></h2>
+                <p>With me, you will have access to all WordPress Services, and not to forget, my animations which are some of the very best in the industry and are all in 3D!</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cube"></i>
+                    </div>
+                    <h3>Theme Customization</h3>
+                    <p>From layout tweaks to advanced design changes — get a fully personalized WordPress theme that stands</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fab fa-wordpress"></i>
+                    </div>
+                    <h3>Custom WordPress Development</h3>
+                    <p>Fully customized WordPress solutions tailored to your specific business requirements.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3>WooCommerce Solutions</h3>
+                    <p>Create immersive shopping experiences with animated 3D product showcases.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Responsive Design</h3>
+                    <p>Mobile-first designs that work flawlessly on all devices and screen sizes.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>SEO Optimization</h3>
+                    <p>Websites built with SEO best practices to maximize your online visibility.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Maintenance & Support</h3>
+                    <p>Ongoing support and maintenance to keep your website running smoothly.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio">
+        <div class="container">
+            <div class="section-header">
+                <h2>My <span>Portfolio</span></h2>
+                <p>Explore my recent projects showcasing innovative 3D animations integrated with WordPress</p>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <img src="image\Green Brown Illustration Clothes Fashion Logo for Store (1)-Photoroom.png" alt="3D Product Showcase">
+                    <div class="portfolio-overlay">
+                        <h3>Sanwariya Fabircs</h3>
+                        <p>E-commerce Experience</p>
+                        <a href="https://sanwariyafabrics.com/" class="btn">View Project</a>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="image\formativ.png" alt="Architectural Visualization">
+                    <div class="portfolio-overlay">
+                        <h3>Formative Concepts</h3>
+                        <p>Real Estate Website</p>
+                        <a href="https://formativeconcepts.com/" class="btn">View Project</a>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="image\traking.jpg" alt="Educational Platform">
+                    <div class="portfolio-overlay">
+                        <h3>Trakking Friendss</h3>
+                        <p>Interactive Learning</p>
+                        <a href="https://trekkingfriendss.com/" class="btn">View Project</a>
+                    </div>
+                </div>
+            </div>
+            <div class="viewmore" style="text-align: center; align-items: center; margin-top: 30px;">
+ <a href="portfolio.html" class="btn btn-outline" >View More</a>
+</div>
+        </div>
+    </section>
+
+    <!-- Animation Showcase -->
+    <section class="animation-showcase" id="animation">
+        <div class="container">
+            <div class="section-header">
+                <h2>3D <span>Animation</span> Showcase</h2>
+                <p>Experience the power of interactive 3D elements in web design</p>
+            </div>
+            <div class="animation-grid">
+                <div class="animation-card">
+                    <div class="animation-icon">
+                        <i class="fas fa-cube"></i>
+                    </div>
+                    <h3>Interactive 3D Models</h3>
+                    <p>Fully interactive 3D models that users can rotate, zoom, and explore</p>
+                </div>
+                <div class="animation-card">
+                    <div class="animation-icon">
+                        <i class="fas fa-vr-cardboard"></i>
+                    </div>
+                    <h3>Immersive Experiences</h3>
+                    <p>Create engaging experiences with 3D environments and animations</p>
+                </div>
+                <div class="animation-card">
+                    <div class="animation-icon">
+                        <i class="fas fa-shopping-bag"></i>
+                    </div>
+                    <h3>Product Visualization</h3>
+                    <p>Showcase products in 3D with detailed views from every angle</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing">
+        <div class="container">
+            <div class="section-header">
+                <h2>Pricing <span>Plans</span></h2>
+                <p>Flexible pricing options to suit projects of all sizes</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Business Website</h3>
+                    <div class="price">10000<span>/project</span></div>
+                    <ul class="features">
+                        <li><i class="fas fa-check"></i>  WordPress Theme</li>
+                        <li><i class="fas fa-check"></i> 3-5 Page Website</li>
+                        <li><i class="fas fa-check"></i> Basic 3D Animation</li>
+                        <li><i class="fas fa-check"></i> Responsive Design</li>
+                        <li><i class="fas fa-check"></i> Basic SEO Setup</li>
+                    </ul>
+                    <a href="#contact" class="btn">Get Started</a>
+                </div>
+                <div class="pricing-card popular">
+                    <h3>E-Commerce</h3>
+                    <div class="price">15000<span>/project</span></div>
+                    <ul class="features">
+                        <li><i class="fas fa-check"></i> Everything in Basic</li>
+                        <li><i class="fas fa-check"></i> Advanced 3D Animations</li>
+                        <li><i class="fas fa-check"></i> Custom Interactive Elements</li>
+                        <li><i class="fas fa-check"></i> E-commerce Integration</li>
+                        <li><i class="fas fa-check"></i> Premium SEO Optimization</li>
+                        <li><i class="fas fa-check"></i> 3 Months Support</li>
+                    </ul>
+                    <a href="#contact" class="btn">Get Started</a>
+                </div>
+                <div class="pricing-card">
+                    <h3>Landing-Page</h3>
+                    <div class="price">6000<span>/project</span></div>
+                    <ul class="features">
+                        <li><i class="fas fa-check"></i> Everything in Professional</li>
+                        <li><i class="fas fa-check"></i> Complex 3D Animations</li>
+                        <li><i class="fas fa-check"></i> Multi-page Website</li>
+                        <li><i class="fas fa-check"></i> Custom Web Applications</li>
+                        <li><i class="fas fa-check"></i> Ongoing Maintenance</li>
+                        <li><i class="fas fa-check"></i> 24/7 Priority Support</li>
+                    </ul>
+                    <a href="#contact" class="btn">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    
+
+    <!-- Contact Section -->
+ <!--    <section id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Get In <span>Touch</span></h2>
+                <p>Have a project in mind? Let's discuss how I can help you</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <div class="contact-detail">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h4>Location</h4>
+                            <p>Jaipur ,Rajasthan</p>
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>Vppanchal66@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+918278600321</p>
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div>
+                            <h4>Working Hours</h4>
+                            <p>Monday - Friday: 9AM - 6PM</p>
+                        </div>
+                    </div>
+                </div>
+               <div class="contact-form">
+    <form id="contactForm" method="POST" action="https://formspree.io/f/xldllddv">
+        <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" class="form-control" placeholder="Enter your name" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email" required>
+        </div>
+        <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" class="form-control" placeholder="Enter subject" required>
+        </div>
+        <div class="form-group">
+            <label for="phone">Mob No</label>
+            <input type="text" id="phone" name="phone" class="form-control" placeholder="Enter Your Number" required>
+        </div>
+        <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" class="form-control" placeholder="Enter your message" required></textarea>
+        </div>
+        <button type="submit" class="btn">Send Message</button>
+    </form>
+
+                </div>
+            </div>
+        </div>
+    </section> -->
+     <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-container">
+                <h2>Ready to Transform Your Digital Presence?</h2>
+                <p>Let's discuss how we can bring your vision to life with cutting-edge web solutions and stunning animations.</p>
+                <a href="contact.html" class="btn">Get Started Today</a>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo">
+                        <i class="fas fa-fire"></i>
+                        Red<span>Shift</span>
+                    </div>
+                    <p>Creating immersive digital experiences through innovative WordPress development and cutting-edge 3D animation.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/people/Vishal-Panchal/100085150862117/"><i class="fab fa-facebook-f"></i></a>
+                        <!-- <a href="#"><i class="fab fa-twitter"></i></a> -->
+                        <a href="https://www.instagram.com/vishalpanchallllll/"><i class="fab fa-instagram"></i></a>
+                        <a href="https://in.linkedin.com/in/vishalpanchal0912"><i class="fab fa-linkedin-in"></i></a>
+                       
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#animation">Animation</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">3D Animation Integration</a></li>
+                        <li><a href="#">Custom WordPress Development</a></li>
+                        <li><a href="#">E-commerce Solutions</a></li>
+                        <li><a href="#">Responsive Web Design</a></li>
+                        <li><a href="#">SEO Optimization</a></li>
+                        <li><a href="#">Website Maintenance</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Newsletter</h4>
+                    <p>Subscribe to receive updates on the latest trends in 3D web animation.</p>
+                    <form class="newsletter-form">
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Enter your email" required>
+                        </div>
+                        <button type="submit" class="btn">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Vishal Panchal. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation Toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const nav = document.getElementById('nav');
+        
+        mobileToggle.addEventListener('click', () => {
+            nav.classList.toggle('active');
+            mobileToggle.querySelector('i').classList.toggle('fa-bars');
+            mobileToggle.querySelector('i').classList.toggle('fa-times');
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                nav.classList.remove('active');
+                mobileToggle.querySelector('i').classList.add('fa-bars');
+                mobileToggle.querySelector('i').classList.remove('fa-times');
+            });
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Form submission
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('Thank you for your message! I will get back to you soon.');
+                contactForm.reset();
+            });
+        }
+        
+        // Testimonials Slider
+        const slider = document.querySelector('.testimonial-slides');
+        const slides = document.querySelectorAll('.testimonial-slide');
+        const dots = document.querySelectorAll('.slider-dot');
+        const prevBtn = document.querySelector('.slider-prev');
+        const nextBtn = document.querySelector('.slider-next');
+        
+        let currentIndex = 0;
+        const slideCount = slides.length;
+        
+        // Update slider position
+        function updateSlider() {
+            slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+            
+            // Update active dot
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentIndex);
+            });
+        }
+        
+        // Next slide
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % slideCount;
+            updateSlider();
+        }
+        
+        // Previous slide
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + slideCount) % slideCount;
+            updateSlider();
+        }
+        
+        // Dot navigation
+        dots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                currentIndex = parseInt(dot.getAttribute('data-index'));
+                updateSlider();
+            });
+        });
+        
+        // Button events
+        nextBtn.addEventListener('click', nextSlide);
+        prevBtn.addEventListener('click', prevSlide);
+        
+        // Auto slide every 5 seconds
+        let slideInterval = setInterval(nextSlide, 5000);
+        
+        // Pause auto slide on hover
+        const sliderContainer = document.querySelector('.testimonial-slider');
+        sliderContainer.addEventListener('mouseenter', () => {
+            clearInterval(slideInterval);
+        });
+        
+        sliderContainer.addEventListener('mouseleave', () => {
+            slideInterval = setInterval(nextSlide, 5000);
+        });
+        
+        // Initialize slider
+        updateSlider();
+    </script>
+</body>
+</html>
