@@ -1336,7 +1336,277 @@
             margin-left: auto;
             margin-right: auto;
         }
-        
+          /* Floating Share Button */
+    .share-btn-container {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      z-index: 100;
+    }
+    
+    .share-btn {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: var(--gradient-red);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.2rem;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(230, 57, 70, 0.5);
+      transition: all 0.3s ease;
+      border: none;
+    }
+    
+    .share-btn:hover {
+      transform: scale(1.1);
+    }
+    
+    .share-options {
+      position: absolute;
+      bottom: 60px;
+      left: 0;
+      background: var(--dark-card);
+      border-radius: 10px;
+      padding: 10px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+      border: 1px solid var(--dark-border);
+      display: none;
+    }
+    
+    .share-options.active {
+      display: flex;
+      gap: 10px;
+    }
+    
+    .share-option {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--dark-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+    
+    .share-option:hover {
+      transform: translateY(-5px);
+    }
+    
+    .share-option.whatsapp {
+      background: #25D366;
+    }
+    
+    .share-option.facebook {
+      background: #3b5998;
+    }
+    
+    .share-option.instagram {
+      background: #E1306C;
+    }
+    
+    .share-option.linkedin {
+      background: #0077B5;
+    }
+    
+    /* Chatbot Button and Interface */
+    .chatbot-container {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1000;
+    }
+    
+    .chatbot-btn {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: var(--gradient-red);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.2rem;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(230, 57, 70, 0.5);
+      transition: all 0.3s ease;
+      border: none;
+    }
+    
+    .chatbot-btn:hover {
+      transform: scale(1.1);
+    }
+    
+    .chatbot-btn i {
+      animation: pulse 2s infinite;
+    }
+    
+    .chatbot-box {
+      position: absolute;
+      bottom: 70px;
+      right: 0;
+      width: 300px;
+      background: var(--dark-card);
+      border-radius: 15px;
+      box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+      border: 1px solid var(--dark-border);
+      overflow: hidden;
+      transform: scale(0);
+      transform-origin: bottom right;
+      transition: transform 0.3s ease;
+      max-height: 400px;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .chatbot-box.active {
+      transform: scale(1);
+    }
+    
+    .chatbot-header {
+      padding: 15px;
+      background: var(--gradient-red);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    .chatbot-header h3 {
+      margin: 0;
+      font-size: 1.1rem;
+    }
+    
+    .chatbot-close {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+    
+    .chatbot-messages {
+      flex: 1;
+      padding: 15px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    
+    .message {
+      max-width: 80%;
+      padding: 10px 15px;
+      border-radius: 15px;
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+    
+    .bot-message {
+      background: rgba(230, 57, 70, 0.1);
+      border: 1px solid var(--red-dark);
+      align-self: flex-start;
+      border-bottom-left-radius: 5px;
+    }
+    
+    .user-message {
+      background: rgba(230, 57, 70, 0.3);
+      border: 1px solid var(--red-primary);
+      align-self: flex-end;
+      border-bottom-right-radius: 5px;
+    }
+    
+    .chatbot-input {
+      display: flex;
+      padding: 10px;
+      border-top: 1px solid var(--dark-border);
+    }
+    
+    .chatbot-input input {
+      flex: 1;
+      padding: 10px;
+      border: 1px solid var(--dark-border);
+      border-radius: 20px;
+      background: var(--dark-bg);
+      color: var(--text-light);
+      outline: none;
+    }
+    
+    .chatbot-input button {
+      margin-left: 10px;
+      background: var(--red-primary);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .chatbot-input button:hover {
+      background: var(--red-secondary);
+    }
+    
+    .quick-replies {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 10px;
+      border-top: 1px solid var(--dark-border);
+    }
+    
+    .quick-reply {
+      padding: 5px 10px;
+      background: rgba(230, 57, 70, 0.1);
+      border: 1px solid var(--red-dark);
+      border-radius: 15px;
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .quick-reply:hover {
+      background: rgba(230, 57, 70, 0.3);
+    }
+    
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+    .service-list {
+      margin: 0;
+      padding-left: 20px;
+    }
+    
+    .service-list li {
+      margin-bottom: 5px;
+    }
+    
+    .price-list {
+      margin: 0;
+      padding-left: 20px;
+    }
+    
+    .price-list li {
+      margin-bottom: 5px;
+      display: flex;
+      justify-content: space-between;
+    }
+    
+    .price-list li span:last-child {
+      color: var(--red-primary);
+      font-weight: 600;
+    }
 
 </style>
 </head>
@@ -1725,6 +1995,57 @@
             </div>
         </div>
     </section>
+   <!-- sharwe -->
+     <div class="share-btn-container">
+    <button class="share-btn" id="shareBtn">
+      <i class="fas fa-share-alt"></i>
+    </button>
+    <div class="share-options" id="shareOptions">
+      <a href="https://wa.me/918278600321" target="_blank" class="share-option whatsapp">
+        <i class="fab fa-whatsapp"></i>
+      </a>
+      <a href="https://www.facebook.com/people/Vishal-Panchal/100085150862117/" target="_blank" class="share-option facebook">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a href="https://www.instagram.com/vishalpanchallllll/" target="_blank" class="share-option instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://in.linkedin.com/in/vishalpanchal0912" target="_blank" class="share-option linkedin">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </div>
+  </div>
+  
+  <!-- Chatbot Button and Interface -->
+   <div class="chatbot-container">
+    <button class="chatbot-btn" id="chatbotBtn">
+      <i class="fas fa-robot"></i>
+    </button>
+    <div class="chatbot-box" id="chatbotBox">
+      <div class="chatbot-header">
+        <h3>Vishal's Assistant</h3>
+        <button class="chatbot-close" id="chatbotClose">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="chatbot-messages" id="chatbotMessages">
+        <div class="message bot-message">
+          Hello! I'm Vishal's assistant. How can I help you today?
+        </div>
+      </div>
+      <div class="quick-replies">
+        <div class="quick-reply" data-message="What services do you offer?">Services</div>
+        <div class="quick-reply" data-message="How can I contact you?">Contact</div>
+        <div class="quick-reply" data-message="What's your pricing?">Pricing</div>
+      </div>
+      <div class="chatbot-input">
+        <input type="text" id="chatbotInput" placeholder="Type your message...">
+        <button id="chatbotSend">
+          <i class="fas fa-paper-plane"></i>
+        </button>
+      </div>
+    </div>
+  </div>
     <!-- Footer -->
     <footer>
         <div class="container">
@@ -1895,6 +2216,167 @@
         
         // Initialize slider
         updateSlider();
+    </script>
+
+    <script>
+         // Share Button Functionality
+    const shareBtn = document.getElementById('shareBtn');
+    const shareOptions = document.getElementById('shareOptions');
+    
+    shareBtn.addEventListener('click', () => {
+      shareOptions.classList.toggle('active');
+    });
+    
+    // Close share options when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!shareBtn.contains(e.target) && !shareOptions.contains(e.target)) {
+        shareOptions.classList.remove('active');
+      }
+    });
+    
+    // Chatbot Functionality
+    const chatbotBtn = document.getElementById('chatbotBtn');
+    const chatbotBox = document.getElementById('chatbotBox');
+    const chatbotClose = document.getElementById('chatbotClose');
+    const chatbotMessages = document.getElementById('chatbotMessages');
+    const chatbotInput = document.getElementById('chatbotInput');
+    const chatbotSend = document.getElementById('chatbotSend');
+    const quickReplies = document.querySelectorAll('.quick-reply');
+    
+    // Toggle chatbot visibility
+    chatbotBtn.addEventListener('click', () => {
+      chatbotBox.classList.toggle('active');
+    });
+    
+    chatbotClose.addEventListener('click', () => {
+      chatbotBox.classList.remove('active');
+    });
+    
+    // Send message function
+    function sendMessage() {
+      const message = chatbotInput.value.trim();
+      if (message) {
+        addMessage(message, 'user');
+        chatbotInput.value = '';
+        
+        // Bot response
+        setTimeout(() => {
+          let botResponse = "Thanks for your message! Vishal will get back to you soon.";
+          
+          if (message.toLowerCase().includes('service') || message.toLowerCase().includes('what do you offer')) {
+            botResponse = `
+              <strong>I offer these services:</strong>
+              <ul class="service-list">
+                <li>E-commerce Website</li>
+                <li>Landing Page</li>
+                <li>Tour Website</li>
+                <li>Business Website</li>
+                <li>Custom WordPress Development</li>
+              </ul>
+              Let me know if you'd like details about any specific service!
+            `;
+          } else if (message.toLowerCase().includes('contact') || message.toLowerCase().includes('how to reach')) {
+            botResponse = `
+              <strong>You can contact Vishal through:</strong>
+              <ul class="service-list">
+                <li>Phone: <a href="tel:+918278600321">+91 8278600321</a></li>
+                <li>Email: <a href="mailto:vppanchal66@gmail.com">vppanchal66@gmail.com</a></li>
+              </ul>
+              Feel free to reach out for any inquiries!
+            `;
+          } else if (message.toLowerCase().includes('pricing') || message.toLowerCase().includes('price') || message.toLowerCase().includes('cost')) {
+            botResponse = `
+              <strong>Here are my standard pricing details:</strong>
+              <ul class="price-list">
+                <li><span>E-commerce Website:</span> <span>₹15,000</span></li>
+                <li><span>Tour Website:</span> <span>₹17,000</span></li>
+                <li><span>Landing Page:</span> <span>₹10,000</span></li>
+                <li><span>Business Website:</span> <span>₹12,000</span></li>
+              </ul>
+              Note: Prices may vary based on specific requirements.
+            `;
+          } else if (message.toLowerCase().includes('hello') || message.toLowerCase().includes('hi')) {
+            botResponse = "Hello there! How can I help you today? You can ask about my services, pricing, or contact information.";
+          }
+          
+          addMessage(botResponse, 'bot');
+        }, 1000);
+      }
+    }
+    
+    // Add message to chat (updated to handle HTML)
+    function addMessage(text, sender) {
+      const messageDiv = document.createElement('div');
+      messageDiv.classList.add('message', `${sender}-message`);
+      
+      // Check if the text contains HTML tags
+      if (/<[a-z][\s\S]*>/i.test(text)) {
+        messageDiv.innerHTML = text;
+      } else {
+        messageDiv.textContent = text;
+      }
+      
+      chatbotMessages.appendChild(messageDiv);
+      chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+    }
+    
+    // Send message on button click
+    chatbotSend.addEventListener('click', sendMessage);
+    
+    // Send message on Enter key
+    chatbotInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        sendMessage();
+      }
+    });
+    
+    // Quick replies with formatted responses
+    quickReplies.forEach(reply => {
+      reply.addEventListener('click', () => {
+        const message = reply.getAttribute('data-message');
+        addMessage(message, 'user');
+        
+        setTimeout(() => {
+          let botResponse = "Thanks for your message! Vishal will get back to you soon.";
+          
+          if (message.includes('Services')) {
+            botResponse = `
+              <strong>I specialize in these services:</strong>
+              <ul class="service-list">
+                <li>E-commerce Website</li>
+                <li>Landing Page</li>
+                <li>Tour Website</li>
+                <li>Business Website</li>
+                <li>Custom WordPress Development</li>
+              </ul>
+              Which service are you interested in?
+            `;
+          } else if (message.includes('Contact')) {
+            botResponse = `
+              <strong>Contact Vishal directly:</strong>
+              <ul class="service-list">
+                <li>Phone: <a href="tel:+918278600321">+91 8278600321</a></li>
+                <li>Email: <a href="mailto:vppanchal66@gmail.com">vppanchal66@gmail.com</a></li>
+              </ul>
+              You can also use the contact form on the website!
+            `;
+          } else if (message.includes('Pricing')) {
+            botResponse = `
+              <strong>Standard pricing for websites:</strong>
+              <ul class="price-list">
+                <li><span>E-commerce Website:</span> <span>₹15,000</span></li>
+                <li><span>Tour Website:</span> <span>₹17,000</span></li>
+                <li><span>Landing Page:</span> <span>₹10,000</span></li>
+                <li><span>Business Website:</span> <span>₹12,000</span></li>
+              </ul>
+              For exact quotes, please share your project details.
+            `;
+          }
+          
+          addMessage(botResponse, 'bot');
+        }, 1000);
+      });
+    });
     </script>
 </body>
 </html>
