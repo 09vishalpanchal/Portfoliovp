@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://vishalpanchal09.netlify.app//sitemap.xml
+Sitemap: https://vishalpanchal09.netlify.app/sitemap.xml
 
